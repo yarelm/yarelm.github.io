@@ -8,10 +8,10 @@
     <lastBuildDate>Mon, 22 Mar 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eading Towards Cloud-Native Developer Environments [Part 1 — The Why]</title>
-      <link>https://yarelm.github.io/creating-a-new-theme/</link>
+      <link>https://yarelm.github.io/heading-towards-cloud-native-environments-1/</link>
       <pubDate>Mon, 22 Mar 2021 02:13:50 +0000</pubDate>
       
-      <guid>https://yarelm.github.io/creating-a-new-theme/</guid>
+      <guid>https://yarelm.github.io/heading-towards-cloud-native-environments-1/</guid>
       <description>Heading Towards Cloud-Native Developer Environments [Part 1 — The Why] In many cloud-based software development projects, a CI/CD process is designed and maintained for deploying applications in an efficient, safe, and productive manner to cloud environments.
 The main focus around the CI/CD process is often on the cloud/remote side, but seldom we talk about the phase that comes right before CI/CD, which is the local development and testing done on the developer’s laptop.</description>
     </item>

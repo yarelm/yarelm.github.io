@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>eading Towards Cloud-Native Developer Environments [Part 1 — The Why] &middot; </title>
+        <meta name="description" content="Common local development methods are going the way of the dinosaur. Cloud-native is the future. Here&#39;s why.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.85.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="eading Towards Cloud-Native Developer Environments [Part 1 — The Why]">
+<meta property="og:description" content="Common local development methods are going the way of the dinosaur. Cloud-native is the future. Here&#39;s why.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yarelm.github.io/heading-towards-cloud-native-environments-1/">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://yarelm.github.io/">My blog</a>
+                            </h1>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/XXX" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/XXX" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" aria-label="Send an Email" href="mailto:XXX@example.com">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/hugoisforlovers/">Getting Started with Hugo</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">eading Towards Cloud-Native Developer Environments [Part 1 — The Why]</h1>
+    
+        <p class="post-description" itemprop="description">Common local development methods are going the way of the dinosaur. Cloud-native is the future. Here&#39;s why.</p>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2021-03-22" itemprop="datePublished">Mon, Mar 22, 2021</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Yarel Maman</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <h2 id="heading-towards-cloud-native-developer-environments-part-1--the-why">Heading Towards Cloud-Native Developer Environments [Part 1 — The Why]</h2>
+<p>In many cloud-based software development projects, a CI/CD process is designed and maintained for deploying applications in an efficient, safe, and productive manner to cloud environments.</p>
+<p>The main focus around the CI/CD process is often on the cloud/remote side, but seldom we talk about the phase that comes right before CI/CD, which is the local development and testing done on the developer’s laptop.</p>
+<p>In this article, I’ll show why many common methods for local development are <strong>far from ideal</strong>, and I’ll present a demo for an alternate, cloud-native approach which will improve your (or your developers’) productivity. 🌤</p>
+<p><img src="https://cdn-images-1.medium.com/max/12032/0*uOwC8XfHT4_yAex9" alt="Photo by Christina @ wocintechchat.com on Unsplash"></p>
+<h2 id="-local-development">👨🏼‍💻 Local Development</h2>
+<p>While there is not a one-size-fits-all best practice — and it varies by the organization/project requirements and needs — I would say the typical CI/CD flow looks something like this:</p>
+<p><img src="https://cdn-images-1.medium.com/max/5594/1*91ycDZVuHY0R_qqZKcmcVA.png" alt=""></p>
+<p>Let’s examine what comes <em>right</em> before step #1: Local Development.</p>
+<p>In most cases, this gets done on the developer’s machine. That is, planning, designing, writing code, writing tests, running tests, and perhaps a POC — and in some cases, manually making sure things are working as expected.</p>
+<p>Many development projects are heavily invested in local setups that mimic the cloud environment in order to test whether the new feature/fix you introduce works properly — without causing regression for other features and logic.</p>
+<p>This kind of setup is mainly used to run certain kinds of automated tests (such as system tests, integration tests, or end-to-end tests). Heck, if you want, you can even manual test 😏.</p>
+<p>Additionally, local environments are often used to debug your code. Some developers are firm adopters of what I call “<strong>debug-driven development</strong>”, but it can be more than just that. Debugging can be useful when you want to investigate a tough bug or better understand a complex flow.</p>
+<h3 id="common-methods-for-local-development">Common Methods For Local Development</h3>
+<p>Assume you’re working on a project which involves a bunch of microservices that are deployed to Kubernetes. Here are a couple of common industry methods that I’ve witnessed:</p>
+<ul>
+<li>
+<p><strong>Docker-compose Method</strong>: Writing and maintaining docker-compose manifests (which are some sort of a duplicate of the existing K8s YAML manifests) that bring up your services + 3rd party dependencies for local testing.</p>
+</li>
+<li>
+<p>**Local K8s Method: **Running a local Kubernetes cluster using minikube/k3s/kind/other, and deploying your services locally for testing, combined with a bunch of scripts.</p>
+</li>
+<li>
+<p>**Test Suites Method: **Makefiles/bash scripts that start a per-service integration tests suites, where 3rd party dependencies are being launched locally as containers via Docker (<a href="https://github.com/ory/dockertest">dockertest</a> for example, is a popular choice for such a setup).</p>
+</li>
+</ul>
+<p>These are all possible options for how to run and test your application locally.</p>
+<h3 id="disadvantages-of-common-local-development-methods">Disadvantages of common local development methods</h3>
+<p>However, the methods mentioned above come with a few disadvantages as well, including:</p>
+<p><strong>Lack of local support from 3rd-parties</strong></p>
+<p>There are some 3rd-party cloud dependencies that do not offer a way to run locally. In some cases, you can emulate by “<a href="https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da">mocking/stubbing</a>” the 3rd-party APIs, but that requires a lot of work maintaining it and does not truly represent the reality. It’s a kind of cheat. What if, for example, one of your DB queries is faulty. How can you figure that out through your testing/debugging if you are not “talking” to a real DB instance?</p>
+<p><strong>Resource-heavy issues</strong></p>
+<p>If your application is heavy in terms of resources, your laptop may not be up to the task. For example, you run a stress test to reproduce a memory leak bug. Or, for example, a bug is only reproduced when there are 20 replicas of your application running simultaneously. Eventually, you find out your laptop is getting unresponsive 😅. This hurts productivity.</p>
+<p><strong>Shutdowns while debugging</strong></p>
+<p>If you want to test or debug a tough/rare bug, which may happen once every few days, your local machine might go shutdown/sleep/hibernate, forcing you to start all over again.</p>
+<p><strong>No single source of truth</strong></p>
+<p>In the <strong>Docker-compose Method</strong>, you find yourself violating the <a href="https://en.wikipedia.org/wiki/Single_source_of_truth">“single source of truth</a>” principle by maintaining multiple representations of your environments.</p>
+<p><strong>Running integration tests ≠ actual integration</strong></p>
+<p>In the **Test Suites Method, **while running integration tests is a good practice with a lot of benefits (even when running locally), it still isn’t the same as integrating your change on a real cloud environment. In some cases, there are integration/deployment bugs and failures it might not detect (such as network connectivity issues to other services, configuration issues, boot crashes, etc.)</p>
+<p>The disadvantages described above hurt your development experience by making you less productive. And in many cases, they do not reflect reality (A classic case of “<a href="https://hackernoon.com/it-works-on-my-machine-f7a1e3d90c63">*It works on my machine!</a>”) <em>and by that, they bring little value</em>.*</p>
+<p>Is there a better, more modern way of approaching the local development phase, while improving productivity and usability? Yes, yes there is.</p>
+<h2 id="-cloud-native-developer-environments">☁️ <em><strong>Cloud-Native Developer Environments</strong></em></h2>
+<p>Now let’s explore remote, cloud-native environments.</p>
+<p>By transforming your local environment into a remote environment, the issues above don’t exist. Plus, it’ll upgrade your development experience into a modern, reliable, cloud-native experience.</p>
+<h3 id="how-do-cloud-native-developer-environments-work">How do cloud-native developer environments work?</h3>
+<p>Allocate a <strong>separate</strong> cloud environment <strong>for each</strong> of your developers, which is a replica (not quite, but close enough) of your development/production environments.</p>
+<p>By using a cloud-native personal environment approach, each developer on a team has the autonomy to use their environment as they see fit. Whether it&rsquo;s for testing new features and bug fixes, reproducing bugs, or even tinkering for self-learning. All done in an environment very similar to production. ✌️</p>
+<p>You could then adapt your tooling around this to make these environments more valuable by, for example, running manual/automated tests, “mirroring” traffic from production towards the personal environments, etc.</p>
+<p>Another valuable thing that comes to mind is conducting live, remote debugging in these environments, in complete isolation without interfering with other environments. You can make use of existing off-the-shelf tooling built for this purpose (we’ll see an example of such a tool in the next chapter).</p>
+<h3 id="winning-points-for-productivity-maintainability-and-reliability">Winning Points For Productivity, Maintainability, And Reliability</h3>
+<p>There are many reasons why you should switch to cloud-native dev environments, but I’ll share my top eight.</p>
+<p>You Will:</p>
+<ul>
+<li>
+<p>Re-use your existing K8s YAML manifests, without having to maintain duplicate deployment configurations. (Keeping it DRY 🌵)</p>
+</li>
+<li>
+<p>Deploy to a cloud environment is done the same way as you deploy to dev/prod, but with added isolation.</p>
+</li>
+<li>
+<p>Stop relying on your local hardware. Cloud infra can easily scale up if you want to run tests that demand heavy resources and scale down on the weekend.</p>
+</li>
+<li>
+<p>Launch long-running tests in your environment without the fear of your laptop shutting down or going into hibernate mode.</p>
+</li>
+<li>
+<p>Detect integration issues quickly, since you’re using real cloud service APIs, and not mocks (for example, you can communicate with PubSub, Cloud SQL, Datastore, and many other cloud services).</p>
+</li>
+<li>
+<p>Take advantage of the built-in infrastructure that the cloud offers for monitoring, alerting, profiling, tracing, and log aggregation, just as you benefit from it for production.</p>
+</li>
+<li>
+<p>Save time by not having to run fancy setup scripts all the time. The cloud is rapid. Your environment is ready for you when you need it.</p>
+</li>
+<li>
+<p>Use these environments to learn Kubernetes by practice (if you’re a beginner), without affecting other environments.</p>
+</li>
+</ul>
+<p>Finally — in addition to developers — DevOps/SRE engineers can benefit from a personal environment by running infra configuration changes on their environment, before hitting environments shared by others.</p>
+<h2 id="-hi-i-have-a-question">🙋‍♂️ Hi! I Have a Question!</h2>
+<h3 id="will-my-cloud-bill-explode"><em><strong>Will my cloud bill explode?</strong></em></h3>
+<p>The initial thought is to provision an entirely separate independent replica of your cloud instances for each developer, isolated by projects, where each project contains a replica of your infrastructure.</p>
+<p>This is generally a good practice. Especially security-wise, as it provides good isolation. However, the cost of this approach can become a problem, especially as your company/team scales.</p>
+<p>Since we are talking about development environments, which are isolated from the production environment in many cases, you can make the tradeoff of costs over security.</p>
+<blockquote>
+<p>Side-note: This tradeoff between security and costs varies between different organizations and requirements — make sure you understand the implications. This <a href="https://gkesecurity.guide/project_organization/">GKE Security guide</a> can help you.</p>
+</blockquote>
+<p><em><strong>So, how do we make that tradeoff?</strong></em> You can make use of multi-tenant features of your cloud services in order to save costs by <strong>sharing resources between environments</strong>.</p>
+<p>This is often called “Soft Multi-Tenancy”, whereby “Soft” you limit the risk by allowing multiple users from the same “trusted” organization to share the resources.</p>
+<p>For example, all developers in a team working on an application can share a K8s cluster, where each developer has the entire application stack replicated in its own K8s namespace.</p>
+<p>Another example is that all developers can share a single DB instance, where each developer will have a dedicated DB user, schema, and tables.</p>
+<p>This is the approach we are going to demo, in the next chapter.</p>
+<h3 id="is-this-a-pain-to-set-up-and-maintain-"><em>Is this a pain to set up and maintain? 🤕🥸</em></h3>
+<p>Not really! You can (and should) make it automated and easily reproducible with Infrastructure as Code and GitOps principles.</p>
+<p>Once all of this configuration is described as code, creating/destroying a personal environment is a matter of a few clicks. Less room for human error as well, as the process is automated.</p>
+<h3 id="why-isnt-it-in-the-development-environment-scope-">Why isn’t it in the development environment scope? 🤔</h3>
+<p>The classic development environment isn’t isolated. It’s shared between all the developers. You merge your code, and your friend merges their code at the same time, so it’s essentially a melting pot. It’s not feasible debugging and running experiments in a shared environment once your team grows.</p>
+<p>In addition, The development environment stage is a bit too late. You have already created a PR, you passed the code review, you merged the PR. Now you discover your changes immediately crash the service. This is now considered a blocker and requires a revert/rollback/hotfix. It is time-consuming for you and your fellow developers.</p>
+<h3 id="personal-environments-or-ephemeral-environments-">Personal environments or ephemeral environments? 👀</h3>
+<p>The simple answer is that it’s up to you.</p>
+<p>Basically, with personal environments, you are dedicating an environment for a specific person for a long-term purpose. While with ephemeral environments, you are creating an environment for a specific <strong>change</strong> (which gets destroyed after you merge that change).</p>
+<p>My colleague <a href="undefined">Mike Sparr</a> wrote a great <a href="https://blog.doit-intl.com/recreating-heroku-ci-cd-review-apps-on-google-cloud-platform-845fa0957232?source=friends_link&amp;sk=f84712c1579d96be64edd4ceb6f2ff2f">article</a> on ephemeral environments and you should check that out as well.</p>
+<p>You could definitely do both — though that might be an overkill for your needs.</p>
+<p>In <a href="https://blog.doit-intl.com/heading-towards-cloud-native-developer-environments-part-2-how-51b09f70c7fa">Part 2</a>, I will illustrate such a setup using an example architecture, using Terraform, ArgoCD, and Telepresence. <a href="https://blog.doit-intl.com/heading-towards-cloud-native-developer-environments-part-2-how-51b09f70c7fa">Go to Part 2!</a></p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="share">
+            <a class="icon-twitter" href="https://twitter.com/share?text=eading%20Towards%20Cloud-Native%20Developer%20Environments%20%5bPart%201%20%e2%80%94%20The%20Why%5d&url=https%3a%2f%2fyarelm.github.io%2fheading-towards-cloud-native-environments-1%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://yarelm.github.io/">My blog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://yarelm.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://yarelm.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://yarelm.github.io/js/scripts.js"></script>
+    </body>
+</html>
+
