@@ -5,15 +5,15 @@
     <link>https://yarelm.github.io/post/</link>
     <description>Recent content in Posts on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Sep 2014 02:13:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Mar 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Creating a New Theme</title>
+      <title>eading Towards Cloud-Native Developer Environments [Part 1 — The Why]</title>
       <link>https://yarelm.github.io/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 02:13:50 +0000</pubDate>
+      <pubDate>Mon, 22 Mar 2021 02:13:50 +0000</pubDate>
       
       <guid>https://yarelm.github.io/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <description>Heading Towards Cloud-Native Developer Environments [Part 1 — The Why] In many cloud-based software development projects, a CI/CD process is designed and maintained for deploying applications in an efficient, safe, and productive manner to cloud environments.
+The main focus around the CI/CD process is often on the cloud/remote side, but seldom we talk about the phase that comes right before CI/CD, which is the local development and testing done on the developer’s laptop.</description>
     </item>
     
     <item>
