@@ -46,5 +46,25 @@ Let’s follow an example of an existing project team and how can we improve the
       <description>Contact Aenean ipsum justo, semper eu nisl ut, pretium tincidunt sem. Praesent et diam sit amet lacus lobortis dictum a id lacus. Quisque hendrerit sit amet turpis eu varius. Ut id lorem ac felis ultrices tincidunt. Pellentesque consequat arcu ac fringilla imperdiet. Phasellus pellentesque, sapien non pulvinar blandit, sapien ante aliquet felis, vel porttitor sapien ante in lacus. Fusce non urna aliquet, malesuada nibh vel, luctus urna. Phasellus ut lacus molestie, varius purus quis, malesuada lorem.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://yarelm.github.io/ebpf-cilium-2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yarelm.github.io/ebpf-cilium-2/</guid>
+      <description>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2) I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
+Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://yarelm.github.io/ebpf-cilium/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://yarelm.github.io/ebpf-cilium/</guid>
+      <description>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 1) If you’re following the latest cloud computing trends, you’ve probably come across the eBPF term quite a lot. It’s hard not to notice it. Let’s learn why.
+Looking for a modern security, observability, and monitoring solution, while maintaining optimal performance? eBPF might be the answer! This article will dive into why this Linux Kernel feature has become one of the top buzzwords for the cloud-native stack.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> &middot; </title>
+        <meta name="description" content="eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2) I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
+Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.88.1" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="">
+<meta property="og:description" content="eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2) I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
+Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yarelm.github.io/ebpf-cilium-2/">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                            </h1>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/YarelMam" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/yarelm" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" aria-label="Send an Email" href="mailto:yarel.maman@gmail.com">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline"></h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="0001-01-01" itemprop="datePublished">Mon, Jan 1, 0001</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author"></a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <h2 id="ebpf-cilium-dataplane-v2-and-all-that-buzz-part-2">eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</h2>
+<p>I hope you enjoyed reading about eBPF in <a href="https://blog.doit-intl.com/ebpf-cilium-dataplane-v2-and-all-that-buzz-part-1-2-1eb4255391da">Part 1</a>! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.</p>
+<p><a href="https://cilium.io/">Cilium</a> 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a <a href="https://github.com/containernetworking/cni">CNI plugin</a> for Kubernetes. It provides eBPF-based networking, observability, and security with optimal scale and performance for platform teams operating Kubernetes environments on the cloud and on-premise.</p>
+<p><img src="https://cdn-images-1.medium.com/max/3840/1*S-VljUlIBFiKR30CBDA78A.jpeg" alt=""></p>
+<blockquote>
+<p><strong>Taking advantage of Extended Berkeley Packet Filter (eBPF), Cilium brings a number of interesting features to K8s. Let’s take a closer look.</strong></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/2000/0*5zwTvbuTbozpDrZV.png" alt=""></p>
+<h3 id="network-policies-">Network Policies 🕸</h3>
+<p>It’s a good practice to implement Least Privilege security when it comes to your K8s pods communicating with each other. The basic <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">K8s Network Policies</a> (operate at L3/L4) do a good job, but you can build upon them with <a href="https://docs.cilium.io/en/v1.10/policy/">Cilium Network Policies</a> (operate at L3-L7).</p>
+<p>This can be very useful in the world of K8s and microservices because examining and controlling the network traffic with metadata (e.g., IPs and ports) doesn’t provide much value. IPs and ports change all the time as services come and go. <strong>With Cilium, you can also control the traffic with Pod, HTTP, gRPC, Kafka, DNS, and other metadata.</strong></p>
+<p>For example, you can define HTTP rules that allow a specific API call to be made from a certain pod via path, header, and request methods. Another example is defining DNS rules based on FQDN, so that only queries to a specific domain will be allowed. That allows us to define security policies that are more valuable and usable in our real-world use-cases.</p>
+<h3 id="multi-cluster-connectivity-">Multi-Cluster Connectivity 🔗</h3>
+<p>By using a <a href="https://cilium.io/blog/2019/03/12/clustermesh">cluster mesh</a>, Cilium allows K8s pods to communicate and be discovered across K8s clusters. Use cases include High Availability and <a href="https://www.youtube.com/watch?v=U34lQ8KbQow">Multi-Cloud</a> (connecting K8s clusters across cloud providers).</p>
+<h3 id="load-balancing-">Load Balancing ⚖️</h3>
+<p>Cilium replaces kube-proxy for BPF.kube-proxy uses iptables which <a href="https://cilium.io/blog/2018/04/17/why-is-the-kernel-community-replacing-iptables">is being replaced for BPF</a>. This change dramatically improves performance.</p>
+<h3 id="additional-features">Additional Features</h3>
+<ul>
+<li>
+<p><a href="https://docs.cilium.io/en/stable/gettingstarted/encryption/">Transparent Encryption</a> between pods. IPsec/Wireguard support</p>
+</li>
+<li>
+<p><a href="https://cilium.io/blog/2021/05/11/cni-benchmark">Increased Network Performance</a></p>
+</li>
+<li>
+<p><a href="https://cilium.io/blog/2019/04/24/cilium-15">High Infra Scalability</a></p>
+</li>
+<li>
+<p><a href="https://cilium.io/blog/2019/11/19/announcing-hubble">Enriched visibility of traffic flows</a>, not only by IPs and ports but also by L7 protocols. Check out <a href="https://cilium.io/blog/2019/12/18/how-to-debug-dns-issues-in-k8s">this blog</a> on an interesting DNS debugging session</p>
+</li>
+<li>
+<p><a href="https://cilium.io/blog/2019/11/19/announcing-hubble#metrics--monitoring">Monitoring</a> and improved visibility to network errors between your microservices. Cilium provides Prometheus-compatible metrics</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>A few words on the alternatives. There are other capable CNI plugins out there in the market. Here’s a <a href="https://kubedex.com/kubernetes-network-plugins/">comparison</a> (might be opinionated). Calico has also recently <a href="https://docs.projectcalico.org/maintenance/enabling-bpf">introduced</a> an eBPF Dataplane.</strong></p>
+</blockquote>
+<h2 id="dataplane-v2-">Dataplane V2 ✈</h2>
+<p>Google Cloud Platform is keeping GKE (Google Kubernetes Engine) in the loop by leveraging Cilium into their own mechanism, <a href="https://cloud.google.com/blog/products/containers-kubernetes/bringing-ebpf-and-cilium-to-google-kubernetes-engine">Dataplane V2</a>. But is Dataplane V2 really a Google-managed Cilium for GKE? We did love our managed services, right? This calls for a close inspection.</p>
+<p>Upon inspecting Google’s <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2">documentation of Dataplane V2 concepts</a>, there is no indication or reference to the Cilium project (at the time of writing this blog post). However, in the <a href="https://cloud.google.com/blog/products/containers-kubernetes/bringing-ebpf-and-cilium-to-google-kubernetes-engine">official blog post</a> and in <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2">some documentation</a>, there are *some *minor references.</p>
+<p>Dataplane V2 control plane is deployed as a K8s DaemonSet called anetd. A quick kubectl describe daemonsets.apps -n kube-system anetd reveals that it is using the image gke.gcr.io/cilium/cilium:v1.9.4-gke.17.</p>
+<p>So, is that really Cilium? Let’s run kubectl exec -n kube-system -ti ds/anetd — cilium version . Here is the output:</p>
+<pre><code>Client: 1.9.4 609a63dfb 2021-04-12T15:01:54-07:00 go version go1.15.7 linux/amd64
+</code></pre>
+<p>Yes! It’s indeed Cilium 1.9.4 ! However, upon comparing it with the official Cilium v1.9.4 image, we get a slightly different result:</p>
+<pre><code>Client: 1.9.4 **07b62884c** **2021-02-03T11:45:44-08:00** go version go1.15.7 linux/amd64
+</code></pre>
+<p>Now let’s compare the Docker images gke.gcr.io/cilium/cilium:v1.9.4-gke.17 and quay.io/cilium/cilium:v1.9.4 with a tool like <a href="https://github.com/wagoodman/dive">Dive</a>. It seems like there are some changes in the layers, but it’s hard for me to tell if there is any major logic change between them when it comes to Cilium’s offerings.</p>
+<blockquote>
+<p><strong>It’s also worth mentioning that in this <a href="https://cilium.io/blog/2020/08/19/google-chooses-cilium-for-gke-networking">blog post</a>, it’s claimed that Google stepped in and contributed a number of meaningful features to the Cilium project. I think that shows a certain degree of commitment.</strong></p>
+</blockquote>
+<h3 id="so-dataplane-v2--managed-cilium">So, Dataplane V2 = Managed Cilium?</h3>
+<p>So far, <strong>I cannot conclude</strong> whether Dataplane V2 is a managed Cilium for GKE. <strong>And without this official conclusion, we can say that at least as a product, Dataplane V2 ≠ Cilium.</strong> It looks like Cilium is being used under the hood or behind the scenes. Google’s docs simply don’t say or guide you to Cillium’s docs. It’s a completely different offering.</p>
+<p>From the testing I have done, some Cilium features seem to work on Dataplane V2. However, there’s no official Google support. Needless to say, “uncharted” Cilium features on Dataplane V2 could work today, but may break unexpectedly at any given time. Hence, it’s best we don’t enter uncharted waters. Just follow the official docs to be on the safe side.</p>
+<h2 id="vanilla-cilium-or-dataplane-v2-">Vanilla Cilium or Dataplane V2? 🤔</h2>
+<p>Here’s a feature comparison:</p>
+<!-- raw HTML omitted -->
+<p>The common features of both Cillium and Dataplane V2 currently are:</p>
+<ul>
+<li>
+<p><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">K8s Network Policies</a> (<strong>not CiliumNetworkPolicy</strong>, although Dataplane V2 doesn’t seem to reject it at the moment),</p>
+</li>
+<li>
+<p>Replacing kube-proxy with eBPF,</p>
+</li>
+<li>
+<p><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy-logging">Network Policy Logging</a>. It’s not really a Cilium feature, but it is based on Cilium. It allows you to monitor the outcome of your network policies hits.</p>
+</li>
+</ul>
+<h3 id="my-opinion-">My Opinion 💭</h3>
+<p>I always try to opt for the simplest solution possible. If it’s managed, that’s great! It saves precious time for all sides involved. Dataplane V2 seems like a simpler and easier <strong>managed</strong> solution if all you need is to leverage K8s Network Policies, a kube-proxy eBPF replacement for performance and scale, and the easy-to-use logging of the network policies outcome.</p>
+<p>Just make sure you are aware of its <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2#limitations">limitations</a>. If you need the additional features from Cilium such as <a href="https://docs.cilium.io/en/v1.9/gettingstarted/hubble/">Hubble</a>, <a href="https://docs.cilium.io/en/v1.9/policy/language/#layer-7-examples">Cilium L7 Network Policies</a>, <a href="https://cilium.io/blog/2019/03/12/clustermesh">Cluster Mesh</a> or using a self-hosted/different cloud provider, you’ll probably want to go with vanilla Cilium instead.</p>
+<h3 id="dataplane-v2-the-pros-">Dataplane V2: The Pros 👍</h3>
+<ul>
+<li>
+<p>Firstly, it’s <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2#create-cluster">easy to install</a>. Just add the —enable-dataplane-v2flag when creating a new GKE cluster via gcloud container clusters create .</p>
+</li>
+<li>
+<p>It is based on the open-source Cilium project.</p>
+</li>
+<li>
+<p>Dataplane V2 acts as the foundation for the <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy-logging">Network Policy Logging</a> in GKE. This is a nifty feature that creates logs when a connection is allowed or denied by a network policy.</p>
+</li>
+<li>
+<p>The anted plugin as part of Dataplane V2 (based on Cilium) is managed by Google and is currently in <a href="https://cloud.google.com/products#product-launch-stages">GA</a> (General Availability). That means it is ready for production workloads, with ongoing updates and support.</p>
+</li>
+<li>
+<p>It’s reasonable to assume Google will add more integration with GKE native features, perhaps with Cilium native features as well. This makes the choice more compelling if you are looking at the long-term.</p>
+</li>
+</ul>
+<h3 id="dataplane-v2-the-cons-">Dataplane V2: The Cons 👎</h3>
+<ul>
+<li>
+<p>As of this moment, I couldn’t find a way to use Hubble with Dataplane V2. <a href="https://docs.cilium.io/en/v1.10/intro/#what-is-hubble">Hubble</a> is a very nice observability tool by Cilium that can provide important visibility by utilizing Cilium eBPF. You can track it <a href="https://github.com/cilium/cilium/issues/15035">here</a>.</p>
+</li>
+<li>
+<p>Officially, Dataplane V2 is not a managed Cilium solution. This means you can’t rely on some Cilium features that are working for you now with Dataplane V2. You may be looking at potential breaks going ahead.</p>
+</li>
+<li>
+<p>You can only enable it on a newly-created GKE cluster. This means you can’t use it on your existing GKE clusters.</p>
+</li>
+<li>
+<p>There are some other <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2#limitations">limitations</a> you should be aware of.</p>
+</li>
+</ul>
+<h2 id="getting-started-">Getting Started 🏃🏽‍♀️</h2>
+<p>To get started with Cilium on K8 — <a href="https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/">Click here</a>.</p>
+<p>To get started with Dataplane V2 on GKE — <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2">Click here</a>.</p>
+<blockquote>
+<p><strong>Pro Tip: When you are writing or planning your K8s/Cilium Network Policy manifests, use the <a href="https://editor.cilium.io/">Cilium Editor</a> for a fun and safe experience.</strong></p>
+</blockquote>
+<h2 id="the-future-of-ebpf">The Future of eBPF</h2>
+<p>Groundbreaking as this technology is, I can predict we will continue seeing many more solutions and interesting developments using eBPF.</p>
+<p>One such potential area of influence is the service mesh world. Most of the existing service mesh solutions (e.g., Istio, Linkerd) rely on sidecar proxies attached to your pods. This impacts performance, adds complexity, and introduces additional points of failure. eBPF has the potential to provide service mesh capabilities by replacing the sidecar proxies with eBPF logic, potentially making service mesh accessible for additional use cases.</p>
+<p>Stay tuned!</p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="share">
+            <a class="icon-twitter" href="https://twitter.com/share?text=&url=https%3a%2f%2fyarelm.github.io%2febpf-cilium-2%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://yarelm.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://yarelm.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://yarelm.github.io/js/scripts.js"></script>
+    </body>
+</html>
+
