@@ -5,7 +5,27 @@
     <link>https://yarelm.github.io/</link>
     <description>Recent content on Yarel Maman&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Mar 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 1)</title>
+      <link>https://yarelm.github.io/ebpf-cilium/</link>
+      <pubDate>Thu, 28 Oct 2021 02:13:50 +0000</pubDate>
+      
+      <guid>https://yarelm.github.io/ebpf-cilium/</guid>
+      <description>If you’re following the latest cloud computing trends, you’ve probably come across the eBPF term quite a lot. It’s hard not to notice it. Let’s learn why.
+Looking for a modern security, observability, and monitoring solution, while maintaining optimal performance? eBPF might be the answer! This article will dive into why this Linux Kernel feature has become one of the top buzzwords for the cloud-native stack. We’ll also explore a popular off-the-shelf cloud solution that is powered by eBPF and examine how it can empower your cloud system security, observability, and monitoring.</description>
+    </item>
+    
+    <item>
+      <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</title>
+      <link>https://yarelm.github.io/ebpf-cilium-2/</link>
+      <pubDate>Thu, 28 Oct 2021 02:13:50 +0000</pubDate>
+      
+      <guid>https://yarelm.github.io/ebpf-cilium-2/</guid>
+      <description>I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
+Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes. It provides eBPF-based networking, observability, and security with optimal scale and performance for platform teams operating Kubernetes environments on the cloud and on-premise.</description>
+    </item>
+    
     <item>
       <title>Heading Towards Cloud-Native Developer Environments [Part 1 — The Why]</title>
       <link>https://yarelm.github.io/heading-towards-cloud-native-environments-1/</link>
@@ -44,26 +64,6 @@ Let’s follow an example of an existing project team and how can we improve the
       
       <guid>https://yarelm.github.io/page/contact/</guid>
       <description>Contact Aenean ipsum justo, semper eu nisl ut, pretium tincidunt sem. Praesent et diam sit amet lacus lobortis dictum a id lacus. Quisque hendrerit sit amet turpis eu varius. Ut id lorem ac felis ultrices tincidunt. Pellentesque consequat arcu ac fringilla imperdiet. Phasellus pellentesque, sapien non pulvinar blandit, sapien ante aliquet felis, vel porttitor sapien ante in lacus. Fusce non urna aliquet, malesuada nibh vel, luctus urna. Phasellus ut lacus molestie, varius purus quis, malesuada lorem.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://yarelm.github.io/ebpf-cilium-2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yarelm.github.io/ebpf-cilium-2/</guid>
-      <description>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2) I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
-Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://yarelm.github.io/ebpf-cilium/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://yarelm.github.io/ebpf-cilium/</guid>
-      <description>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 1) If you’re following the latest cloud computing trends, you’ve probably come across the eBPF term quite a lot. It’s hard not to notice it. Let’s learn why.
-Looking for a modern security, observability, and monitoring solution, while maintaining optimal performance? eBPF might be the answer! This article will dive into why this Linux Kernel feature has become one of the top buzzwords for the cloud-native stack.</description>
     </item>
     
   </channel>
