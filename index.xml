@@ -6,8 +6,15 @@
     <description>Recent content on Yarel Maman&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Oct 2021 02:14:50 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 21:00:00 +0000</lastBuildDate>
     <atom:link href="https://yarelm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The AI-First Transformation: Winning Over Skeptical Engineers</title>
+      <link>https://yarelm.github.io/ai-first-engineering-culture/</link>
+      <pubDate>Thu, 04 Dec 2025 21:00:00 +0000</pubDate>
+      <guid>https://yarelm.github.io/ai-first-engineering-culture/</guid>
+      <description>&lt;p&gt;🤔 As a manager, how do you transform your engineering culture to be AI-first?&lt;/p&gt;&#xA;&lt;p&gt;You probably believe that AI is a huge productivity boost for engineers. And that engineers who do not adopt AI will find themselves with a huge disadvantage in the near future.&lt;/p&gt;&#xA;&lt;p&gt;You have a really good point there. But why is that not enough to move the needle?&lt;/p&gt;&#xA;&lt;p&gt;In every org, there are the &amp;ldquo;AI skeptical&amp;rdquo; engineers.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</title>
       <link>https://yarelm.github.io/ebpf-cilium-2/</link>
