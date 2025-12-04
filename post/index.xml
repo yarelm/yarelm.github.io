@@ -4,49 +4,37 @@
     <title>Posts on Yarel Maman&#39;s Blog</title>
     <link>https://yarelm.github.io/post/</link>
     <description>Recent content in Posts on Yarel Maman&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 28 Oct 2021 02:14:50 +0000</lastBuildDate><atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Oct 2021 02:14:50 +0000</lastBuildDate>
+    <atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</title>
       <link>https://yarelm.github.io/ebpf-cilium-2/</link>
       <pubDate>Thu, 28 Oct 2021 02:14:50 +0000</pubDate>
-      
       <guid>https://yarelm.github.io/ebpf-cilium-2/</guid>
-      <description>I hope you enjoyed reading about eBPF in Part 1! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.
-Cilium 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a CNI plugin for Kubernetes. It provides eBPF-based networking, observability, and security with optimal scale and performance for platform teams operating Kubernetes environments on the cloud and on-premise.</description>
+      <description>&lt;p&gt;I hope you enjoyed reading about eBPF in &lt;a href=&#34;https://www.yarelm.com/ebpf-cilium/&#34;&gt;Part 1&lt;/a&gt;! Now let’s examine Cilium as a popular K8s eBPF solution and find out how it relates to Dataplane V2.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cilium.io/&#34;&gt;Cilium&lt;/a&gt; 🐝 is a “hot” technology that’s powered by eBPF. It’s often the first thing mentioned when eBPF comes up, more so in the context of K8s. Cilium is basically open-source software that acts as a &lt;a href=&#34;https://github.com/containernetworking/cni&#34;&gt;CNI plugin&lt;/a&gt; for Kubernetes. It provides eBPF-based networking, observability, and security with optimal scale and performance for platform teams operating Kubernetes environments on the cloud and on-premise.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 1)</title>
       <link>https://yarelm.github.io/ebpf-cilium/</link>
       <pubDate>Thu, 28 Oct 2021 02:13:50 +0000</pubDate>
-      
       <guid>https://yarelm.github.io/ebpf-cilium/</guid>
-      <description>If you’re following the latest cloud computing trends, you’ve probably come across the eBPF term quite a lot. It’s hard not to notice it. Let’s learn why.
-Looking for a modern security, observability, and monitoring solution, while maintaining optimal performance? eBPF might be the answer! This article will dive into why this Linux Kernel feature has become one of the top buzzwords for the cloud-native stack. We’ll also explore a popular off-the-shelf cloud solution that is powered by eBPF and examine how it can empower your cloud system security, observability, and monitoring.</description>
+      <description>&lt;p&gt;If you’re following the latest cloud computing trends, you’ve probably come across the eBPF term quite a lot. It’s hard not to notice it. Let’s learn why.&lt;/p&gt;&#xA;&lt;p&gt;Looking for a modern security, observability, and monitoring solution, while maintaining optimal performance? eBPF might be the answer! This article will dive into why this Linux Kernel feature has become one of the top buzzwords for the cloud-native stack. We’ll also explore a popular off-the-shelf cloud solution that is powered by eBPF and examine how it can empower your cloud system security, observability, and monitoring. So let’s give that buzz a buzz!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Heading Towards Cloud-Native Developer Environments [Part 1 — The Why]</title>
       <link>https://yarelm.github.io/heading-towards-cloud-native-environments-1/</link>
       <pubDate>Mon, 22 Mar 2021 02:13:50 +0000</pubDate>
-      
       <guid>https://yarelm.github.io/heading-towards-cloud-native-environments-1/</guid>
-      <description>In many cloud-based software development projects, a CI/CD process is designed and maintained for deploying applications in an efficient, safe, and productive manner to cloud environments.
-The main focus around the CI/CD process is often on the cloud/remote side, but seldom we talk about the phase that comes right before CI/CD, which is the local development and testing done on the developer’s laptop.
-In this article, I’ll show why many common methods for local development are far from ideal, and I’ll present a demo for an alternate, cloud-native approach which will improve your (or your developers’) productivity.</description>
+      <description>&lt;p&gt;In many cloud-based software development projects, a CI/CD process is designed and maintained for deploying applications in an efficient, safe, and productive manner to cloud environments.&lt;/p&gt;&#xA;&lt;p&gt;The main focus around the CI/CD process is often on the cloud/remote side, but seldom we talk about the phase that comes right before CI/CD, which is the local development and testing done on the developer’s laptop.&lt;/p&gt;&#xA;&lt;p&gt;In this article, I’ll show why many common methods for local development are &lt;strong&gt;far from ideal&lt;/strong&gt;, and I’ll present a demo for an alternate, cloud-native approach which will improve your (or your developers’) productivity. 🌤&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Heading Towards Cloud-Native Developer Environments [Part 2 — The How]</title>
       <link>https://yarelm.github.io/heading-towards-cloud-native-environments-2/</link>
       <pubDate>Mon, 22 Mar 2021 02:13:50 +0000</pubDate>
-      
       <guid>https://yarelm.github.io/heading-towards-cloud-native-environments-2/</guid>
-      <description>Heading Towards Cloud-Native Developer Environments [Part 2 — The How] Alright! If you&amp;rsquo;re here it probably means you have read Part 1 (The Why), and you want to know more about how to properly set up cloud-native developer environments. Great!
-Let’s follow an example of an existing project team and how can we improve their development workflow.
- This guide was written with GCP (Google Cloud Platform) in mind, but the same concepts can be applied to AWS as well.</description>
+      <description>&lt;h2 id=&#34;heading-towards-cloud-native-developer-environments-part-2--the-how&#34;&gt;Heading Towards Cloud-Native Developer Environments [Part 2 — The How]&lt;/h2&gt;&#xA;&lt;p&gt;Alright! If you&amp;rsquo;re here it probably means you have read &lt;a href=&#34;https://yarelm.github.io/heading-towards-cloud-native-environments-1/&#34;&gt;Part 1 (The Why)&lt;/a&gt;, and you want to know more about how to properly set up cloud-native developer environments. Great!&lt;/p&gt;&#xA;&lt;p&gt;Let’s follow an example of an existing project team and how can we improve their development workflow.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;This guide was written with GCP (Google Cloud Platform) in mind, but the same concepts can be applied to AWS as well.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

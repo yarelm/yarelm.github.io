@@ -4,6 +4,8 @@
     <title>Tags on Yarel Maman&#39;s Blog</title>
     <link>https://yarelm.github.io/tags/</link>
     <description>Recent content in Tags on Yarel Maman&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://yarelm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://yarelm.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
