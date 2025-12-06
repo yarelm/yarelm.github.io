@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 04 Dec 2025 21:00:00 +0000</lastBuildDate>
     <atom:link href="https://yarelm.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The AI-First Transformation: Winning Over Skeptical Engineers</title>
+      <title>AI Transformation: Win the Skeptics First</title>
       <link>https://yarelm.github.io/ai-first-engineering-culture/</link>
       <pubDate>Thu, 04 Dec 2025 21:00:00 +0000</pubDate>
       <guid>https://yarelm.github.io/ai-first-engineering-culture/</guid>
-      <description>&lt;p&gt;🤔 As a manager, how do you transform your engineering culture to be AI-first?&lt;/p&gt;&#xA;&lt;p&gt;You probably believe that AI is a huge productivity boost for engineers. And that engineers who do not adopt AI will find themselves with a huge disadvantage in the near future.&lt;/p&gt;&#xA;&lt;p&gt;You have a really good point there. But why is that not enough to move the needle?&lt;/p&gt;&#xA;&lt;p&gt;In every org, there are the &amp;ldquo;&lt;strong&gt;AI skeptical&lt;/strong&gt;&amp;rdquo; engineers.&lt;/p&gt;</description>
+      <description>&lt;p&gt;The engineers most resistant to AI are often your most senior. They&amp;rsquo;re also the ones you need to win over first.&lt;/p&gt;&#xA;&lt;p&gt;You probably believe that AI is a huge productivity boost for engineers. And that engineers who do not adopt AI will find themselves with a huge disadvantage in the near future, or even out of job.&lt;/p&gt;&#xA;&lt;p&gt;You have a really valid point there. But why is that claim not enough to move the needle?&lt;/p&gt;</description>
     </item>
     <item>
       <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</title>
