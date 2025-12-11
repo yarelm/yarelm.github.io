@@ -16,6 +16,13 @@
       <description>&lt;p&gt;The engineers most resistant to AI are often your most senior. They&amp;rsquo;re also the ones you need to win over first.&lt;/p&gt;&#xA;&lt;p&gt;You probably believe that AI is a huge productivity boost for engineers. And that engineers who do not adopt AI will find themselves with a huge disadvantage in the near future, or even out of job.&lt;/p&gt;&#xA;&lt;p&gt;Why is that claim not enough to move the needle?&lt;/p&gt;&#xA;&lt;p&gt;Because productivity claims don&amp;rsquo;t address what skeptics actually care about: quality and maintainability.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Tips for Fruitful AI-Assisted Coding</title>
+      <link>https://yarelm.github.io/ai-coding-tips/</link>
+      <pubDate>Tue, 18 Mar 2025 12:00:00 +0000</pubDate>
+      <guid>https://yarelm.github.io/ai-coding-tips/</guid>
+      <description>&lt;p&gt;Feeling the AI FOMO yet? 🤖😂 I get it — AI buzz is everywhere, and it often feels like magic when used for demos and prototypes. But, as an engineer who&amp;rsquo;s racked up a few scars from production mishaps, and is involved in LLM app development, I&amp;rsquo;ve always approached AI-assisted coding tools with cautious optimism. I&amp;rsquo;ve had my doubts, thinking, &amp;ldquo;We&amp;rsquo;re not there yet.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;However, after months of exploring different tools, things changed for me recently. I had an &amp;ldquo;aha&amp;rdquo; moment where AI coding assistance went from being a &amp;ldquo;hit or miss&amp;rdquo; tool for specific cases to something I now rely on more frequently to help me code. The game-changer? Agentic tools like Claude Code, Cursor, Windsurf, and Cline. Personally, I really like Roo Code, which feels like the hipster choice 😍&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>eBPF, Cilium, Dataplane V2 and All That Buzz (Part 2)</title>
       <link>https://yarelm.github.io/ebpf-cilium-2/</link>
       <pubDate>Thu, 28 Oct 2021 02:14:50 +0000</pubDate>
