@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Start From the Problem: Product Intent Over PRDs &middot; </title>
+        <meta name="description" content="Why solution-first PRDs hurt even more when agents write the code, and the short Product Intent doc we use instead">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.152.2">
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Start From the Problem: Product Intent Over PRDs">
+<meta property="og:description" content="Why solution-first PRDs hurt even more when agents write the code, and the short Product Intent doc we use instead">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yarelm.github.io/product-intent-over-prds/">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                            </h1>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/YarelMam" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/yarelm" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" aria-label="Send an Email" href="mailto:yarel.maman@gmail.com">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Start From the Problem: Product Intent Over PRDs</h1>
+    
+        <p class="post-description" itemprop="description">Why solution-first PRDs hurt even more when agents write the code, and the short Product Intent doc we use instead</p>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2026-10-22" itemprop="datePublished">Thu, Oct 22, 2026</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Yarel Maman</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>If you asked me what pushed us forward the most in our AI SDLC, you might be surprised. It&rsquo;s nothing technical. It&rsquo;s not Claude Fable, and it&rsquo;s not AGI.</p>
+<p>It was changing the way we define tasks.</p>
+<h2 id="the-assembly-line-trap">The Assembly Line Trap</h2>
+<p>Long before AI, the lifecycle usually started with a ticket: a list of requirements, or a Product Requirements Document (PRD). An engineer got assigned, and off they went.</p>
+<p>Truth is, we got used to thinking of software development as a kind of assembly line, and not entirely fairly. Our own vocabulary doesn&rsquo;t help: production, staging, the &ldquo;software factory&rdquo;.</p>
+<p>The big problem with that PRD is that it&rsquo;s often focused on the desired solution, with a set of rigid requirements. Sometimes it doesn&rsquo;t describe the customer&rsquo;s problem at all.</p>
+<p>In an ideal world, product and engineering have a two-way interface. Product doesn&rsquo;t really know the system&rsquo;s architecture, so engineers are expected to push back: ask why, explain the implications, suggest alternatives. The intent was never &ldquo;product defines the solution, engineering executes.&rdquo;</p>
+<p>A short conversation between the engineer and the PM might have led to a much simpler solution. One that solves the user&rsquo;s problem just as well, and saves time and headaches later.</p>
+<p>So it&rsquo;s partly a matter of organizational culture. If you&rsquo;re in an org where development starts from the solution instead of the problem, ask yourself why, and start challenging it.</p>
+<h2 id="why-it-matters-even-more-in-the-ai-sdlc">Why It Matters Even More in the AI SDLC</h2>
+<p>Simplifying a bit, you can split software development into tactical and strategic programming:</p>
+<ul>
+<li><strong>Tactical programming:</strong> implementing a plan by writing code.</li>
+<li><strong>Strategic programming:</strong> building it while looking at the whole system and the implications down the road. Am I adding unnecessary complexity? Is there a simpler, cheaper solution? How do I ship this to production with minimal disruption to customers? And most important of all: what problem are we actually trying to solve?</li>
+</ul>
+<p>Agents are great at tactical programming. Give an agent a well-defined task and it will execute it with ease. The value engineers bring in this area is shrinking fast.</p>
+<p>Strategic programming is something I haven&rsquo;t yet seen agents do well without an engineer in the loop. That&rsquo;s where engineers still have a lot of room to make an impact.</p>
+<h2 id="where-this-collides-with-prds">Where This Collides With PRDs</h2>
+<p>Combine solution-first PRDs with agentic development, and you get two main problems:</p>
+<p><strong>1. Strategy gets pushed aside.</strong> Development drifts toward the tactical, and the strategic gets swept under the rug. Engineers get frustrated, and the odds go up that a few months later you&rsquo;re stuck with a monster of a system (one they soon won&rsquo;t recognize) and a big ball of mud.</p>
+<p><strong>2. The agents overfit.</strong> In the SDLC, it creates a strong overfit toward the tactical. The agents start from a fixed point around the given solution and just head toward it. Even if your SDLC has a brainstorming step, it works poorly when you start from the solution. I learned this the hard way.</p>
+<h2 id="what-instead-a-short-product-intent-doc">What Instead? A Short Product Intent Doc</h2>
+<p>The concept is simple: focus on the problem. How does it affect the customer? Why is it a problem at all? How would we like the customer to experience the solution? No predefined solution, and no rigid &ldquo;requirements&rdquo;.</p>
+<p>How do you put it into practice?</p>
+<ul>
+<li><strong>Write a Skill the PM can run.</strong> It interviews them about the problem and ends with the Product Intent doc.</li>
+<li><strong>The engineer takes it from there.</strong> In the SDLC, the engineer moves to strategic programming and brainstorms the problem, which now finally meets the engineering side.</li>
+<li><strong>Converge together.</strong> You land on a solution that&rsquo;s right and simple, both technically and product-wise.</li>
+</ul>
+<p>An hour invested in planning and understanding can save days, even months, of technical mistakes. Simple, but significant. 🎯</p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="share">
+            <a class="icon-twitter" href="https://twitter.com/share?text=Start%20From%20the%20Problem%3a%20Product%20Intent%20Over%20PRDs&url=https%3a%2f%2fyarelm.github.io%2fproduct-intent-over-prds%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2026 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://yarelm.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://yarelm.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://yarelm.github.io/js/scripts.js"></script>
+        
+    </body>
+</html>
+

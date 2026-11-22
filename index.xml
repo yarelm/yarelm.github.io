@@ -6,8 +6,15 @@
     <description>Recent content on Yarel Maman&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Dec 2025 21:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 12:00:00 +0000</lastBuildDate>
     <atom:link href="https://yarelm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Start From the Problem: Product Intent Over PRDs</title>
+      <link>https://yarelm.github.io/product-intent-over-prds/</link>
+      <pubDate>Thu, 22 Oct 2026 12:00:00 +0000</pubDate>
+      <guid>https://yarelm.github.io/product-intent-over-prds/</guid>
+      <description>&lt;p&gt;If you asked me what pushed us forward the most in our AI SDLC, you might be surprised. It&amp;rsquo;s nothing technical. It&amp;rsquo;s not Claude Fable, and it&amp;rsquo;s not AGI.&lt;/p&gt;&#xA;&lt;p&gt;It was changing the way we define tasks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-assembly-line-trap&#34;&gt;The Assembly Line Trap&lt;/h2&gt;&#xA;&lt;p&gt;Long before AI, the lifecycle usually started with a ticket: a list of requirements, or a Product Requirements Document (PRD). An engineer got assigned, and off they went.&lt;/p&gt;&#xA;&lt;p&gt;Truth is, we got used to thinking of software development as a kind of assembly line, and not entirely fairly. Our own vocabulary doesn&amp;rsquo;t help: production, staging, the &amp;ldquo;software factory&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>AI Transformation: Win the Skeptics First</title>
       <link>https://yarelm.github.io/ai-first-engineering-culture/</link>
