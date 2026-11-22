@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Documenting Intent: The Why Agents Can&#39;t Read From Code &middot; </title>
+        <meta name="description" content="Decision-making is the real bottleneck in the AI SDLC. Here&#39;s how we capture the why behind the code with glossaries and ADRs, without drowning in docs">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.152.2">
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Documenting Intent: The Why Agents Can&#39;t Read From Code">
+<meta property="og:description" content="Decision-making is the real bottleneck in the AI SDLC. Here&#39;s how we capture the why behind the code with glossaries and ADRs, without drowning in docs">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yarelm.github.io/documenting-intent/">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://yarelm.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                            </h1>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/YarelMam" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/yarelm" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Email" aria-label="Send an Email" href="mailto:yarel.maman@gmail.com">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Documenting Intent: The Why Agents Can&#39;t Read From Code</h1>
+    
+        <p class="post-description" itemprop="description">Decision-making is the real bottleneck in the AI SDLC. Here&#39;s how we capture the why behind the code with glossaries and ADRs, without drowning in docs</p>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2026-11-22" itemprop="datePublished">Sun, Nov 22, 2026</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Yarel Maman</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>In my SDLC today, most of my time in the execution phase goes to making decisions and applying judgment. In practice, that&rsquo;s my main bottleneck. 🧭</p>
+<p>All of these decisions fall under one umbrella: <strong>Intent</strong>. The decisions, conclusions and thoughts that come from me and from the process.</p>
+<p>To make development more efficient, my goal is to cut down how often I need to step in and steer the ship, without hurting quality. If I let the agents run free, I&rsquo;ll quickly end up with a bloated system that both they and I struggle to understand.</p>
+<p>As the engineer in the loop, my value is intuition, judgment and business context. Claude can be an excellent programmer, but without the context of the business, the architecture and what we&rsquo;ve seen in production, the risk goes up and I turn into its babysitter.</p>
+<p>The challenge here is managing knowledge that moves fast, when the old tools no longer work.</p>
+<h2 id="the-old-habits-trap">The Old Habits Trap</h2>
+<p>Like many others, I tried building a background process where Claude documents changes and maintains design docs for both people and agents. Pretty quickly it did more harm than good:</p>
+<ul>
+<li><strong>Drift.</strong> The docs became a view of the code, and soon the code said one thing while the doc said another.</li>
+<li><strong>Implementation details leaked in.</strong> Code and implementation details crept into the docs, which made the drift even worse.</li>
+</ul>
+<p>The docs lost their credibility and the idea was abandoned. But something was still missing.</p>
+<h2 id="why-code-alone-isnt-enough">Why Code Alone Isn&rsquo;t Enough</h2>
+<p>Code tells you how the system works. It doesn&rsquo;t tell you why:</p>
+<ul>
+<li>Was this solution built after an experiment on 1,000 cases, or as a band-aid for a production bug?</li>
+<li>Was it a deliberate decision by a developer, or did an agent just make an assumption?</li>
+</ul>
+<p>Beyond that, today&rsquo;s systems aren&rsquo;t just code anymore. Agentic systems are a good example: the code is tied to prompts and harnesses that evolved through evals and lessons learned in production. Where is that documented? Certainly not in the code. A week from now, another developer (or me) might make a breaking, out-of-context decision, and I&rsquo;m back to babysitting.</p>
+<h2 id="the-fix-separate-the-how-from-the-why">The Fix: Separate the &ldquo;How&rdquo; From the &ldquo;Why&rdquo;</h2>
+<p>Design docs have two parts: how it works, and why we chose X over Y. The first part no longer needs documenting, since models are great at reading code and explaining its logic. The second part is the Intent, and agents can&rsquo;t read our minds.</p>
+<p>There&rsquo;s a lot of hype around the &ldquo;Company Brain&rdquo;, but garbage in, garbage out applies here too: the more inaccurate or unnecessary information we flood agents with, the worse the results. The trick is knowing what&rsquo;s worth documenting.</p>
+<h2 id="what-were-trying-right-now">What We&rsquo;re Trying Right Now</h2>
+<p>The approach we&rsquo;ve been running for a while is built on lean tools that live in the repo:</p>
+<ul>
+<li>📖 <strong>Glossary:</strong> a short dictionary of our domain terms. It maps parts of the system to their product definitions and gives everyone a shared language.</li>
+<li>📌 <strong>ADRs (Architectural Decision Records):</strong> short files that capture an architectural decision during planning and execution. Every decision sits on a timeline, and when a new decision replaces an old one, we mark or update the old one.</li>
+<li>🏷️ <strong>Index and tags:</strong> each ADR is tagged, so agents can pull only the decisions relevant to the area of code they&rsquo;re working in. We built a script that, given an area of the code, points to the ADRs that cover it.</li>
+</ul>
+<p>The goal is to capture the hidden technical intent without burying ourselves in paperwork. Before every change, the agents explore and learn the story behind the code.</p>
+<p>Just like I trust a developer who&rsquo;s been on the team for a year more than a new hire, these steps let me give agents more autonomy.</p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="share">
+            <a class="icon-twitter" href="https://twitter.com/share?text=Documenting%20Intent%3a%20The%20Why%20Agents%20Can%27t%20Read%20From%20Code&url=https%3a%2f%2fyarelm.github.io%2fdocumenting-intent%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://yarelm.github.io/">Yarel Maman&#39;s Blog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2026 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://yarelm.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://yarelm.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://yarelm.github.io/js/scripts.js"></script>
+        
+    </body>
+</html>
+
